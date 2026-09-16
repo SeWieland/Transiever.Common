@@ -1,0 +1,30 @@
+version: 2
+
+updates:
+  - package-ecosystem: nuget
+    directories: [/src/Transiever.Common.Accounts.UnitTest]
+    schedule: { interval: daily, time: '08:00', timezone: Europe/Berlin }
+    open-pull-requests-limit: 10
+    cooldown: { default-days: 1 }
+    commit-message: { prefix: chore(deps-ci) }
+    groups:
+      test-dependencies: { patterns: ['*'], update-types: [patch, minor] }
+      test-major-dependencies: { patterns: ['*'], update-types: [major] }
+  - package-ecosystem: npm
+    directory: /
+    schedule: { interval: daily, time: '08:00', timezone: Europe/Berlin }
+    open-pull-requests-limit: 10
+    cooldown: { default-days: 1 }
+    commit-message: { prefix: chore(deps-ci) }
+    groups:
+      release-tooling: { dependency-type: development, update-types: [patch, minor] }
+      major-dependencies: { patterns: ['*'], update-types: [major] }
+  - package-ecosystem: github-actions
+    directory: /
+    schedule: { interval: daily, time: '08:00', timezone: Europe/Berlin }
+    open-pull-requests-limit: 10
+    cooldown: { default-days: 1 }
+    commit-message: { prefix: chore(deps-ci) }
+    groups:
+      actions-minor-patch: { update-types: [patch, minor] }
+      actions-major: { update-types: [major] }

@@ -23,7 +23,7 @@ The package does not implement provider login, OAuth acquisition or renewal, net
 ```bash
 dotnet restore Transiever.Common.slnx
 dotnet build Transiever.Common.slnx --configuration Release --no-restore
-dotnet test Transiever.Common.slnx --configuration Release --no-build
+dotnet test --solution Transiever.Common.slnx --configuration Release --no-build
 dotnet pack src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj --configuration Release --no-build
 ```
 

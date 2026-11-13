@@ -35,7 +35,10 @@ module.exports = {
     [
       "@droidsolutions-oss/semantic-release-nuget",
       {
-        projectPath: "src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj",
+        projectPath: [
+          "src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj",
+          "src/Transiever.Common.Cli/Transiever.Common.Cli.csproj"
+        ],
         usePackageVersion: true,
         nugetRegistries: [
           {

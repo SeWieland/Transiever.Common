@@ -9,12 +9,18 @@ dotnet restore Transiever.Common.slnx
 dotnet build Transiever.Common.slnx --configuration Release --no-restore
 dotnet test --solution Transiever.Common.slnx --configuration Release --no-build
 dotnet pack src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj --configuration Release --no-build
+dotnet pack src/Transiever.Common.Cli/Transiever.Common.Cli.csproj --configuration Release --no-build
 ```
 
 Before publication, restore the packed artifact from an explicit local package source.
 The consumer must not require a sibling project reference.
 
 ## Offline coverage
+
+CLI input tests use synthetic intercepted keys and supplied readers.
+They cover Enter, Backspace at empty and non-empty lengths, UTF-16 code-unit deletion, ignored controls, empty input, EOF, whitespace, final lines without terminators, one-read ownership, and propagated I/O failures.
+Option tests distinguish exact case-insensitive assignments from bare options, unrelated names, and longer prefixes.
+No test requires a terminal or a real secret.
 
 Profile tests use an isolated temporary directory with synthetic account data.
 They cover persistence, stable identities, timestamps, missing and corrupt JSON, deletion, private access, and atomic replacement.

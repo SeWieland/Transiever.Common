@@ -1,5 +1,14 @@
 # Architecture
 
+The independently consumable packages have no dependency on each other:
+
+* `Transiever.Common.Accounts` owns profiles and local credential lifecycle.
+* `Transiever.Common.Cli` owns stateless secret-input mechanics and secret-option assignment matching.
+
+Cli uses only runtime libraries.
+Tools retain source selection, configuration precedence, terminal eligibility, prompts, diagnostics, and authentication timing.
+Its [package guide](../src/Transiever.Common.Cli/README.md) describes the input contract.
+
 `Transiever.Common.Accounts` is the shared boundary between Transiever tool configuration and the operating system credential service:
 
 ```text

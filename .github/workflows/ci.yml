@@ -25,3 +25,4 @@ jobs:
       - run: dotnet build Transiever.Common.slnx --configuration Release --no-restore
       - run: dotnet test --solution Transiever.Common.slnx --configuration Release --no-build
       - run: dotnet pack src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj --configuration Release --no-build --output out
+      - run: dotnet pack src/Transiever.Common.Cli/Transiever.Common.Cli.csproj --configuration Release --no-build --output out

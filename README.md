@@ -1,19 +1,23 @@
 # Transiever.Common
 
 `Transiever.Common` contains focused .NET 10 libraries shared by Transiever tools.
-The initial package, `Transiever.Common.Accounts`, owns non-secret account profiles and safe access to platform credential stores.
+`Transiever.Common.Accounts` owns non-secret account profiles and safe access to platform credential stores.
+`Transiever.Common.Cli` provides stateless secret-input mechanics while tools retain their configuration and authentication policy.
 
 ## Install
 
 ```bash
 dotnet add package Transiever.Common.Accounts
+dotnet add package Transiever.Common.Cli
 ```
 
-The package does not implement provider login, OAuth acquisition or renewal, network protocols, Sieve rules, or a shared CLI framework.
+Install either package independently; neither requires the other.
+They do not implement provider login, OAuth acquisition or renewal, network protocols, Sieve rules, or a shared CLI framework.
 
 ## Documentation Map
 
 * [Accounts package guide](src/Transiever.Common.Accounts/README.md)
+* [CLI input package guide](src/Transiever.Common.Cli/README.md)
 * [authentication and credential lifecycle](docs/authentication.md)
 * [architecture](docs/architecture.md)
 * [testing](docs/testing.md)
@@ -25,12 +29,16 @@ dotnet restore Transiever.Common.slnx
 dotnet build Transiever.Common.slnx --configuration Release --no-restore
 dotnet test --solution Transiever.Common.slnx --configuration Release --no-build
 dotnet pack src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj --configuration Release --no-build
+dotnet pack src/Transiever.Common.Cli/Transiever.Common.Cli.csproj --configuration Release --no-build
 ```
+
+See the [testing guide](docs/testing.md) for coverage and validation limits.
 
 ## Publication
 
 Stable releases come from `main`; beta prereleases come from `dev`.
 GitHub Actions publish packages to NuGet.org using trusted publishing.
+Accounts and Cli share the version calculated for each repository release.
 
 ## AI usage
 

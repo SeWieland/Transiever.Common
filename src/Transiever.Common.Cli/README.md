@@ -4,10 +4,6 @@ Small, stateless .NET 10 secret-input mechanics for command-line tools.
 The package uses only runtime libraries and supports trimming and Native AOT.
 It has no dependency on `Transiever.Common.Accounts`.
 
-This package is currently an unpublished candidate.
-Use an explicit local package source for [candidate validation](https://github.com/SeWieland/Transiever.Common#development).
-After publication, install it from NuGet.org:
-
 ```bash
 dotnet add package Transiever.Common.Cli
 ```

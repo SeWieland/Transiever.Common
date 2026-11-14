@@ -8,13 +8,6 @@
 
 ```bash
 dotnet add package Transiever.Common.Accounts
-```
-
-`Transiever.Common.Cli` is currently an unpublished candidate.
-Use an explicit local package source for [candidate validation](#development).
-After publication, install it from NuGet.org:
-
-```bash
 dotnet add package Transiever.Common.Cli
 ```
 
@@ -39,14 +32,12 @@ dotnet pack src/Transiever.Common.Accounts/Transiever.Common.Accounts.csproj --c
 dotnet pack src/Transiever.Common.Cli/Transiever.Common.Cli.csproj --configuration Release --no-build
 ```
 
-For candidate validation, restore a separate consumer from an explicit local source containing the packed Cli artifact and pin its packed version.
-Local-feed validation does not establish public availability.
 See the [testing guide](docs/testing.md) for coverage and validation limits.
 
 ## Publication
 
 Stable releases come from `main`; beta prereleases come from `dev`.
-The GitHub Actions release workflow is configured to publish packages to NuGet.org using trusted publishing.
+GitHub Actions publish packages to NuGet.org using trusted publishing.
 Accounts and Cli share the version calculated for each repository release.
 
 ## AI usage
